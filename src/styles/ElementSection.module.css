@@ -1,0 +1,26 @@
+.icon{
+    width: 2rem;
+    height: 2rem;
+}
+
+.title,
+.field{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.fieldSection{
+    display: grid;
+    gap: 1rem;
+}
+
+input {
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: 0.2rem solid #f3f4f6;
+    background-color: #f3f4f6;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    border-radius: 0.5rem;
+}

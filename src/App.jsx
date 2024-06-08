@@ -1,23 +1,28 @@
-import { useState } from 'react'
-import Section from './components/Section.jsx'
-import './App.css'
+import ElementSection from './components/ElementSection.jsx'
+import Section from './components/Section.jsx';
+//import Section from './components/Section.jsx';
+
 
 function App() {
-  
-  const personalInformationFields = [
-    { title: 'Name', value: '' },
-    { title: 'Email', value: '' },
-    { title: 'Phone', value: '' },
-  ]
+
+  const title = 'Personal Information';
+  const fields = [
+      { title: 'Name'},
+      { title: 'Email'},
+      { title: 'Phone'},
+  ];
+
+  const educationTitle = 'Education';
+  const elements = [
+    [{school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'}],
+    [{school: 'School02', degree: 'Degree02', graduationYear: '2021', location: 'USA'}]
+  ];
 
   return (
     <>
       <h1>CV Generator</h1>
-      <Section
-        title="Personal Information"
-        icon="https://icon.now.sh/account_circle"
-        fields={personalInformationFields}
-      />
+      <ElementSection title={title} fields={fields} />
+      <Section title={educationTitle} elements={elements} />
     </>
   )
 }
