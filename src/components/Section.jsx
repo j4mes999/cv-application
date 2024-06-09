@@ -13,7 +13,7 @@ export default function Section({ title, elements }) {
                 {isExpanded && (
                     <div className="section-content">
                         {elements.map((element, index) => (
-                          <ElementSection key={index} fields={element} />
+                          <ElementSection key={index} title={element.school} fields={element}/>
                         ))}
                     </div>
                 )}

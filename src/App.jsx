@@ -1,6 +1,6 @@
 import ElementSection from './components/ElementSection.jsx'
 import Section from './components/Section.jsx';
-//import Section from './components/Section.jsx';
+
 
 
 function App() {
@@ -15,7 +15,8 @@ function App() {
   const educationTitle = 'Education';
   const elements = [
     [{school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'}],
-    [{school: 'School02', degree: 'Degree02', graduationYear: '2021', location: 'USA'}]
+    [{school: 'School02', degree: 'Degree02', graduationYear: '2021', location: 'USA'}],
+    [{school: 'School03', degree: 'Degree03', graduationYear: '2023', location: 'Colombia'}],
   ];
 
   return (
