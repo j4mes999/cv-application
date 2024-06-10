@@ -18,6 +18,9 @@ function App() {
     [{school: 'School02', degree: 'Degree02', graduationYear: '2021', location: 'USA'}],
     [{school: 'School03', degree: 'Degree03', graduationYear: '2023', location: 'Colombia'}],
   ];
+  // const elements = [
+  //   [{school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'}]
+  // ];
 
   return (
     <>
@@ -29,3 +32,5 @@ function App() {
 }
 
 export default App
+
+//TODO: check the way I am building the elements array in App.jsx

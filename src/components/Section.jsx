@@ -12,9 +12,13 @@ export default function Section({ title, elements }) {
                 </div>
                 {isExpanded && (
                     <div className="section-content">
-                        {elements.map((element, index) => (
-                          <ElementSection key={index} title={element.school} fields={element}/>
-                        ))}
+                        {elements.map((element, index) => 
+                        //  console.log('Section.jsx element title:'+ element[0]);
+                        //  console.log('Section.jsx index:'+ index);
+                        // Object.keys(element[0]).forEach((prop)=> console.log(prop));
+                          <ElementSection key={index} title={element[0].school} fields={element[0]}/>
+                        
+                        )}
                     </div>
                 )}
             </div>
