@@ -1,7 +1,7 @@
 import { InformationCircleIcon } from "hugeicons-react"
 import styles from '../styles/ElementSection.module.css'
 
-export default function ElementSection({title, fields}){
+export default function GeneralSection({title, fields}){
      return (
         <>
         <div className="section">

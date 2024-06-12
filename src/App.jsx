@@ -1,4 +1,4 @@
-import ElementSection from './components/ElementSection.jsx'
+import GeneralSection from './components/ElementSection.jsx'
 import Section from './components/Section.jsx';
 
 
@@ -14,18 +14,19 @@ function App() {
 
   const educationTitle = 'Education';
   const elements = [
-    [{school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'}],
-    [{school: 'School02', degree: 'Degree02', graduationYear: '2021', location: 'USA'}],
-    [{school: 'School03', degree: 'Degree03', graduationYear: '2023', location: 'Colombia'}],
+    {school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'},
+    {school: 'School02', degree: 'Degree02', graduationYear: '2021', location: 'USA'},
+    {school: 'School03', degree: 'Degree03', graduationYear: '2023', location: 'Colombia'},
   ];
   // const elements = [
-  //   [{school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'}]
+  //   {school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'}
   // ];
+
 
   return (
     <>
       <h1>CV Generator</h1>
-      <ElementSection title={title} fields={fields} />
+      <GeneralSection title={title} fields={fields} />
       <Section title={educationTitle} elements={elements} />
     </>
   )
@@ -33,4 +34,4 @@ function App() {
 
 export default App
 
-//TODO: check the way I am building the elements array in App.jsx
+//TODO: Add just a form in education with all the fields needed.
