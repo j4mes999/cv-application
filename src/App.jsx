@@ -39,5 +39,5 @@ function App() {
 
 export default App
 
-//TODO complete the update action in general section
+//TODO figure out how to handle the update action in GeneralSection.jsx.
 
