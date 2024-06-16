@@ -2,8 +2,10 @@ import CVViewer from './components/CVViewer.jsx';
 import GeneralSection from './components/GeneralSection.jsx'
 import Section from './components/Section.jsx';
 import styles from './styles/Main.module.css'
+import React, { useState } from 'react';
 
 function App() {
+  const [formData, setFormData] = useState([]);
 
   const title = 'Personal Information';
   const fields = [
@@ -21,6 +23,12 @@ function App() {
   // const elements = [
   //   {school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'}
   // ];
+  const handleFormSubmit = (event) => {
+    console.log('App.jsx handleSubmit value 1: '+event.target[0].value);
+    console.log('App.jsx handleSubmit value 2: '+event.target[1].value);
+    setFormData(Object.entries(event.target));
+    event.preventDefault();
+  };
 
 
   return (
@@ -28,10 +36,9 @@ function App() {
       <h1>CV Generator</h1>
       <div className={styles.mainContainer}>
         <div className="sections">
-          <GeneralSection title={title} fields={fields} />
+          <GeneralSection title={title} fields={fields} whenSubmit={handleFormSubmit}/>
         </div>
-        <CVViewer />
-        {/* <Section title={educationTitle} elements={elements} /> */}
+        <CVViewer data={formData} />
       </div>
     </>
   )
@@ -39,5 +46,4 @@ function App() {
 
 export default App
 
-//TODO figure out how to handle the update action in GeneralSection.jsx.
-
+//TODO Continue investigating why the hell I am going to pass the form data to the other component.

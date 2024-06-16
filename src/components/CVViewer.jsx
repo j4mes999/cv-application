@@ -1,7 +1,9 @@
-export default function CVViewer(){
+export default function CVViewer({ data }){
     return (
-        <>
-        <h1>CV Viewer</h1>
-        </>
-    )
+        <div>
+          {data.map((field, index) => (
+            <p key={index}>{field.title}: {field.value}</p>
+          ))}
+        </div>
+      );
 }
