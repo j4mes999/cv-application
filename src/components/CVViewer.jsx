@@ -2,7 +2,7 @@ export default function CVViewer({ data }){
     return (
         <div>
           {data.map((field, index) => (
-            <p key={index}>{field.title}: {field.value}</p>
+            <p key={index}>{field}</p>
           ))}
         </div>
       );

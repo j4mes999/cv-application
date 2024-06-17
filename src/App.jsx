@@ -15,20 +15,25 @@ function App() {
   ];
 
   const educationTitle = 'Education';
-  const elements = [
-    { school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada' },
-    { school: 'School02', degree: 'Degree02', graduationYear: '2021', location: 'USA' },
-    { school: 'School03', degree: 'Degree03', graduationYear: '2023', location: 'Colombia' },
+  const educationElements = [
+    { title: 'School' },
+    { title: 'Degree' },
+    { title: 'Graduation Year' },
+    { title: 'Location' }
   ];
   // const elements = [
   //   {school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'}
   // ];
-  const handleFormSubmit = (event) => {
-    console.log('App.jsx handleSubmit value 1: '+event.target[0].value);
-    console.log('App.jsx handleSubmit value 2: '+event.target[1].value);
-    setFormData(Object.entries(event.target));
+  function handleFormSubmit(event) {
+    let newArrayFields = new Array();
+    for (let i = 0; i < event.target.length; i++) {
+      if (event.target[i].type === 'text') {
+        newArrayFields.push(event.target[i].value);
+      }
+    }
+    setFormData(newArrayFields);
     event.preventDefault();
-  };
+  }
 
 
   return (
@@ -36,7 +41,8 @@ function App() {
       <h1>CV Generator</h1>
       <div className={styles.mainContainer}>
         <div className="sections">
-          <GeneralSection title={title} fields={fields} whenSubmit={handleFormSubmit}/>
+          <GeneralSection title={title} fields={fields} whenSubmit={handleFormSubmit} />
+          <Section title={educationTitle} elements={educationElements} />
         </div>
         <CVViewer data={formData} />
       </div>
@@ -46,4 +52,4 @@ function App() {
 
 export default App
 
-//TODO Continue investigating why the hell I am going to pass the form data to the other component.
+//TODO Fix styles in education section and continue
