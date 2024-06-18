@@ -1,19 +1,17 @@
 import { useState } from 'react';
 import styles from '../styles/ElementSection.module.css'
 
-export default function Section({ title, elements }) {
+export default function Section({ title, elements, whenSubmit }) {
     const [isExpanded, setIsExpanded] = useState(false);
-
-    console.log('Section.jsx elements lenght: '+elements);
 
     return (
         <>
-            <div className="section">
-                <div className="section-title" onClick={() => setIsExpanded(!isExpanded)}>
-                    <h2>{title} v</h2>
+            <form onSubmit={whenSubmit} noValidate>
+                <div className={styles.sectionTitle} onClick={() => setIsExpanded(!isExpanded)}>
+                    <h2>{title} {!isExpanded ? '+' : '-'}</h2>
                 </div>
                 {isExpanded && (
-                    <div className="section-content">
+                    <div className={styles.fieldSection}>
                         {
                             elements.map((field, index) => (
                                 <div key={index} className={styles.field}>
@@ -26,11 +24,11 @@ export default function Section({ title, elements }) {
                             ))
                         }
                         <div className="button-section">
-                            <button type="submit">Update</button>
+                            <button type="submit">Save</button>
                         </div>
                     </div>
                 )}
-            </div>
+            </form>
         </>
     )
 }

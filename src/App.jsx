@@ -5,7 +5,7 @@ import styles from './styles/Main.module.css'
 import React, { useState } from 'react';
 
 function App() {
-  const [formData, setFormData] = useState([]);
+  const [educationData, setEducationData] = useState([]);
 
   const title = 'Personal Information';
   const fields = [
@@ -24,14 +24,19 @@ function App() {
   // const elements = [
   //   {school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'}
   // ];
-  function handleFormSubmit(event) {
+  function onSubmitGeneralData(event) {
     let newArrayFields = new Array();
     for (let i = 0; i < event.target.length; i++) {
       if (event.target[i].type === 'text') {
         newArrayFields.push(event.target[i].value);
       }
     }
-    setFormData(newArrayFields);
+    setEducationData(newArrayFields);
+    event.preventDefault();
+  }
+
+  function onSubmitEducationData(event){
+    console.log('Education form was sent!');
     event.preventDefault();
   }
 
@@ -41,10 +46,10 @@ function App() {
       <h1>CV Generator</h1>
       <div className={styles.mainContainer}>
         <div className="sections">
-          <GeneralSection title={title} fields={fields} whenSubmit={handleFormSubmit} />
-          <Section title={educationTitle} elements={educationElements} />
+          <GeneralSection title={title} fields={fields} whenSubmit={onSubmitGeneralData} />
+          <Section title={educationTitle} elements={educationElements} whenSubmit={onSubmitEducationData}/>
         </div>
-        <CVViewer data={formData} />
+        <CVViewer data={educationData} />
       </div>
     </>
   )
@@ -52,4 +57,4 @@ function App() {
 
 export default App
 
-//TODO Fix styles in education section and continue
+//TODO Think about how to insert a new experience object into Section.jsx.
