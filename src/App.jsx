@@ -5,7 +5,9 @@ import styles from './styles/Main.module.css'
 import React, { useState } from 'react';
 
 function App() {
+  const [generalData, setGeneralData] = useState([]);
   const [educationData, setEducationData] = useState([]);
+  const [experienceData, setExperienceData] = useState([]);
 
   const title = 'Personal Information';
   const fields = [
@@ -21,6 +23,16 @@ function App() {
     { title: 'Graduation Year' },
     { title: 'Location' }
   ];
+
+  const experienceTitle = 'Experience';
+  const experienceElements = [
+    { title: 'Company' },
+    { title: 'Position' },
+    { title: 'Start Date' },
+    { title: 'End Date' },
+    { title: 'Location' },
+    { title: 'Description' }
+  ];
   // const elements = [
   //   {school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'}
   // ];
@@ -31,25 +43,60 @@ function App() {
         newArrayFields.push(event.target[i].value);
       }
     }
+    setGeneralData(newArrayFields);
+    //TODO RESET FORM
+    event.target.reset();
+    event.preventDefault();
+  }
+
+  function onSubmitEducationData(event) {
+    let newArrayFields = [...educationData];
+    let educationItem = {
+      school: event.target[0].value,
+      degree: event.target[1].value,
+      year: event.target[2].value,
+      location: event.target[3].value
+    };
+    newArrayFields.push(educationItem);
     setEducationData(newArrayFields);
+    event.target.reset();
     event.preventDefault();
   }
 
-  function onSubmitEducationData(event){
-    console.log('Education form was sent!');
+  function onSubmitExperienceData(event) {
+    let newArrayFields = [...experienceData];
+    let experienceItem = {
+      company: event.target[0].value,
+      position: event.target[1].value,
+      startDate: event.target[2].value,
+      endDate: event.target[3].value,
+      location: event.target[4].value,
+      description: event.target[5].value
+    };
+    newArrayFields.push(experienceItem);
+    setExperienceData(newArrayFields);
+    event.target.reset();
     event.preventDefault();
   }
-
 
   return (
     <>
-      <h1>CV Generator</h1>
+      <h1 className={styles.mainTitle}>CV Generator</h1>
       <div className={styles.mainContainer}>
         <div className="sections">
-          <GeneralSection title={title} fields={fields} whenSubmit={onSubmitGeneralData} />
-          <Section title={educationTitle} elements={educationElements} whenSubmit={onSubmitEducationData}/>
+          <Section title={title} 
+            elements={fields} 
+            whenSubmit={onSubmitGeneralData} />
+          <Section title={educationTitle}
+            elements={educationElements}
+            whenSubmit={onSubmitEducationData} />
+          <Section title={experienceTitle}
+            elements={experienceElements}
+            whenSubmit={onSubmitExperienceData} />
         </div>
-        <CVViewer data={educationData} />
+        <CVViewer generalData={generalData}
+          educationData={educationData} 
+          experienceData={experienceData}/>
       </div>
     </>
   )
@@ -57,4 +104,4 @@ function App() {
 
 export default App
 
-//TODO Think about how to insert a new experience object into Section.jsx.
+//TODO Add delete functionality to CVViewer

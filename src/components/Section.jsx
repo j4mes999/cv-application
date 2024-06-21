@@ -2,14 +2,15 @@ import { useState } from 'react';
 import styles from '../styles/ElementSection.module.css'
 
 export default function Section({ title, elements, whenSubmit }) {
+    
     const [isExpanded, setIsExpanded] = useState(false);
 
     return (
-        <>
+        <div>
+            <div className={styles.sectionTitle} onClick={() => setIsExpanded(!isExpanded)}>
+                <h2>{title} {!isExpanded ? '+' : '-'}</h2>
+            </div>
             <form onSubmit={whenSubmit} noValidate>
-                <div className={styles.sectionTitle} onClick={() => setIsExpanded(!isExpanded)}>
-                    <h2>{title} {!isExpanded ? '+' : '-'}</h2>
-                </div>
                 {isExpanded && (
                     <div className={styles.fieldSection}>
                         {
@@ -29,6 +30,7 @@ export default function Section({ title, elements, whenSubmit }) {
                     </div>
                 )}
             </form>
-        </>
+        </div>
+
     )
 }
