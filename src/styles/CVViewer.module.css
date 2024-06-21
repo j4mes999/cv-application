@@ -1,4 +1,5 @@
-.educationElement{
+.educationElement,
+.experienceElement{
     display: flex;
 }
 
@@ -18,6 +19,7 @@
     display: none;
 }
 
-.educationElement:hover > .hide{
+.educationElement:hover > .hide,
+.experienceElement:hover > .hide{
     display: flex;
 }

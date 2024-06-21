@@ -1,8 +1,7 @@
 import CVViewer from './components/CVViewer.jsx';
-import GeneralSection from './components/GeneralSection.jsx'
 import Section from './components/Section.jsx';
 import styles from './styles/Main.module.css'
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function App() {
   const [generalData, setGeneralData] = useState([]);
@@ -33,9 +32,15 @@ function App() {
     { title: 'Location' },
     { title: 'Description' }
   ];
-  // const elements = [
-  //   {school: 'School', degree: 'Degree', graduationYear: '2020', location: 'Canada'}
-  // ];
+
+  function updateEducationData(updatedData){
+    setEducationData(updatedData);
+  }
+
+  function updateExperienceData(updatedData){
+    setExperienceData(updatedData);
+  }
+
   function onSubmitGeneralData(event) {
     let newArrayFields = new Array();
     for (let i = 0; i < event.target.length; i++) {
@@ -44,7 +49,6 @@ function App() {
       }
     }
     setGeneralData(newArrayFields);
-    //TODO RESET FORM
     event.target.reset();
     event.preventDefault();
   }
@@ -96,7 +100,9 @@ function App() {
         </div>
         <CVViewer generalData={generalData}
           educationData={educationData} 
-          experienceData={experienceData}/>
+          updateEducationData={updateEducationData}
+          experienceData={experienceData}
+          updateExperienceData={updateExperienceData}/>
       </div>
     </>
   )
