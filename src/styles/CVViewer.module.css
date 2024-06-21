@@ -1,0 +1,23 @@
+.educationElement{
+    display: flex;
+}
+
+.deleteIcon{
+    cursor: pointer;
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.deleteButton{
+    background: transparent;
+    cursor: pointer;
+    border: solid 0.1rem transparent;
+}
+
+.hide{
+    display: none;
+}
+
+.educationElement:hover > .hide{
+    display: flex;
+}
