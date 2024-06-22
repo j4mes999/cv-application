@@ -23,7 +23,7 @@ export default function CVViewer({ generalData, educationData, experienceData, u
     }
 
     return (
-        <div className="cv-viewer">
+        <div className={styles.mainContainer}>
             <div>
                 {generalData.map((field, index) => (
                     <p key={index}>{field}</p>

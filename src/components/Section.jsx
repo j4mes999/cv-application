@@ -6,7 +6,7 @@ export default function Section({ title, elements, whenSubmit }) {
     const [isExpanded, setIsExpanded] = useState(false);
 
     return (
-        <div>
+        <div className={styles.mainSectionContainer}>
             <div className={styles.sectionTitle} onClick={() => setIsExpanded(!isExpanded)}>
                 <h2>{title} {!isExpanded ? '+' : '-'}</h2>
             </div>
@@ -24,7 +24,7 @@ export default function Section({ title, elements, whenSubmit }) {
                                 </div>
                             ))
                         }
-                        <div className="button-section">
+                        <div className={styles.buttonSection}>
                             <button type="submit">Save</button>
                         </div>
                     </div>

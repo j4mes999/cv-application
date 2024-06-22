@@ -7,13 +7,14 @@
 .field,
 .sectionTitle{
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 0.5rem;
 }
 
 .fieldSection{
     display: grid;
     gap: 1rem;
+    margin-top: 1rem;
 }
 
 input {
@@ -28,4 +29,24 @@ input {
 
 .sectionTitle{
     cursor: pointer;
+}
+
+.buttonSection{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}	
+
+button{
+    padding: 0.5rem 1rem;
+    outline: none;
+    border: 0;
+    background-color: #E8B17D;
+    transition: 0.5s;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.mainSectionContainer{
+    margin-top: 2rem;
 }

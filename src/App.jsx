@@ -49,7 +49,6 @@ function App() {
       }
     }
     setGeneralData(newArrayFields);
-    event.target.reset();
     event.preventDefault();
   }
 
@@ -87,7 +86,7 @@ function App() {
     <>
       <h1 className={styles.mainTitle}>CV Generator</h1>
       <div className={styles.mainContainer}>
-        <div className="sections">
+        <div className={styles.sections}>
           <Section title={title} 
             elements={fields} 
             whenSubmit={onSubmitGeneralData} />
@@ -110,4 +109,4 @@ function App() {
 
 export default App
 
-//TODO Add delete functionality to CVViewer
+//TODO Put beautiful styles in form sections
