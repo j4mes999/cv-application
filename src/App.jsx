@@ -84,7 +84,6 @@ function App() {
 
   return (
     <>
-      <h1 className={styles.mainTitle}>CV Generator</h1>
       <div className={styles.mainContainer}>
         <div className={styles.sections}>
           <Section title={title} 
@@ -109,4 +108,4 @@ function App() {
 
 export default App
 
-//TODO Put beautiful styles in form sections
+//TODO The main two columns must be contained inside the main container, change also the aligment of elements in CVViewer

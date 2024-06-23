@@ -21,13 +21,15 @@ export default function CVViewer({ generalData, educationData, experienceData, u
         setExperienceElements(updatedExperienceData);
         updateExperienceData(updatedExperienceData);
     }
-
+    console.log('generalData firts'+ generalData[0]);
     return (
         <div className={styles.mainContainer}>
-            <div>
-                {generalData.map((field, index) => (
-                    <p key={index}>{field}</p>
-                ))}
+            <div className={styles.generalDataContainer}>
+                <h3>{generalData[0]}</h3>
+                <div className={styles.generalDataGrid}>
+                    <span>{generalData[1]}</span>
+                    <span>{generalData[2]}</span>
+                </div>
             </div>
             <div>
                 <h2>{educationElements.length != 0 ? 'Education' : ''}</h2>
