@@ -32,7 +32,7 @@ export default function CVViewer({ generalData, educationData, experienceData, u
                 </div>
             </div>
             <div>
-                <h2>{educationElements.length != 0 ? 'Education' : ''}</h2>
+                <h2 className={styles.sectionTitle}>{educationElements.length != 0 ? 'Education' : ''}</h2>
                 {
                     educationElements.map((educationElement, index) =>
                         <div key={index} className={styles.educationElement}>
@@ -49,7 +49,7 @@ export default function CVViewer({ generalData, educationData, experienceData, u
                     )}
             </div>
             <div>
-                <h2>{experienceElements.length != 0 ? 'Experience' : ''}</h2>
+                <h2 className={styles.sectionTitle}>{experienceElements.length != 0 ? 'Experience' : ''}</h2>
                 {
                     experienceElements.map((experienceElement, index) =>
                         <div key={index} className={styles.experienceElement}>

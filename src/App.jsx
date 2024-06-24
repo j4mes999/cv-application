@@ -108,4 +108,4 @@ function App() {
 
 export default App
 
-//TODO The main two columns must be contained inside the main container, change also the aligment of elements in CVViewer
+//TODO hide the backgorund in education and experience when no data is shown. Fix experience grid
